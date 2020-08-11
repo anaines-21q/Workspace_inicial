@@ -4,7 +4,7 @@ var newpassword = document.getElementById('newpassword');
 
 // storing input from register-form (key , value)
 function store() {
-     if (newemail.value != null && (newpassword.value != null)) {
+     if (newemail.value.lenght != 0 && (newpassword.value.lenght != 0)) {
     localStorage.setItem(newemail.value, newpassword.value);
  alert("Quedaste registrado!");
      }else{
