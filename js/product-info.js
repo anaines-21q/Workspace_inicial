@@ -5,12 +5,12 @@ function showImagesGallery(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
+        let images = array[i];
 
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + images.img + `" alt="">
+                <img class="img-fluid img-thumbnail" src="` + images + `" alt="">
             </div>
         </div>
         `
@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
-            productproductCountHTML.innerHTML = product.productCount;
+            productsoldCountHTML.innerHTML = product.soldCount;
             productCriteriaHTML.innerHTML = category.productCriteria;
 
             //Muestro las imagenes en forma de galería
-           showImagesGallery(category.images);
+           showImagesGallery(product.images);
         }
     });
 });
