@@ -4,9 +4,14 @@ var newpassword = document.getElementById('newpassword');
 
 // storing input from register-form (key , value)
 function store() {
-     if (newemail.value == 0 || (newpassword.value == 0)) {
+     if (newemail.value == 0 || (newpassword.value == 0)  ) {
           alert("Falta Email o Contraseña");
-     }else{
+     }
+     else if (pswrepeat.value !== newpassword.value)
+          {
+          alert("Ingrese nuevamente su contraseña");
+     }
+     else {
     localStorage.setItem(newemail.value, newpassword.value);
  alert("Quedaste registrado!");
      }
