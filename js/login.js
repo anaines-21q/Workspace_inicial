@@ -4,11 +4,13 @@ var newpassword = document.getElementById('newpassword');
 
 // storing input from register-form (key , value)
 function store() {
-     if (newemail.value.lenght != 0 && (newpassword.value.lenght != 0)) {
+     if (newemail.value == 0 || (newpassword.value == 0)) {
+          alert("Falta Email o Contraseña");
+     }else{
     localStorage.setItem(newemail.value, newpassword.value);
  alert("Quedaste registrado!");
-     }else{
-         alert("Falta Email o Contraseña");}
+     }
+         
                }
 
 // check if stored data from register-form is equal to entered data in the login-form
