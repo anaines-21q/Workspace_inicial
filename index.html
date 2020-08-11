@@ -36,15 +36,17 @@
   <div class=container id=login>
   <div id=loginbox>
   <img id=logo src=img/login.png>
-      <form id=loginform action="index.html">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-      </form>  
+     <form id=loginform name="login">
+  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+  <input type="email" class="form-control" id="emaillogin" placeholder="Email" name="email" value="">
+  <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+  <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="" id="password">        
+  <button type="button" class="btn btn-success btn-lg btn-block" id="ingresar" onClick="usuario()">A comprar!</button>
+  <button type="button" class="btn btn-primary btn-lg btn-block" id="registrar" onClick="window.location.href='register.html'">Registrate</button>
+</form>  
       </div>  
       </div>
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
