@@ -51,6 +51,7 @@ function showProductsList(){
                             <small class="text-muted">` + product.cost + " " + product.currency +` </small>
                         </div>
                         </div>
+                        </div>
             </a>
             `
         }
