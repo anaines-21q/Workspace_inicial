@@ -50,6 +50,7 @@ function showProductsList(){
                             <h4 class="mb-1">`+ product.name +`</h4>
                             <small class="text-muted">` + product.cost + " " + product.currency +` </small>
                         </div>
+                        <p class="mb-1">` + product.description + `</p>
                         </div>
                         </div>
             </a>
