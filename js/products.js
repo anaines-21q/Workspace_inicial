@@ -51,6 +51,7 @@ function showProductsList(){
                             <small class="text-muted">` + product.cost + " " + product.currency +` </small>
                         </div>
                         <p class="mb-1">` + product.description + `</p>
+                           <p class="mb-1">`productos vendidos:  + product.soldCount + `</p>
                         </div>
                         </div>
             </a>
