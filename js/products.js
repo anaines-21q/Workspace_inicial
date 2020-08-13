@@ -40,7 +40,7 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <a href="category-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -51,9 +51,8 @@ function showProductsList(){
                             <small class="text-muted">` + product.cost + " " + product.currency +` </small>
                         </div>
                         <p class="mb-1">` + product.description + `</p>
-                           <p class="text-muted">`productos vendidos:  + product.soldCount + `</p>
-                        </div>
-                        </div>
+                                            </div>
+                </div>
             </a>
             `
         }
@@ -93,6 +92,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowProducts(ORDER_DESC_BY_SOLD_COUNT);
     });
 
+
+
+
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
@@ -126,3 +128,5 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+
