@@ -9,5 +9,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
     else {
         location.href = "index.html"}
 })
-})
 
