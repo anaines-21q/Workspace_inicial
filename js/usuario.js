@@ -4,9 +4,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (email != null){
 
    miusuario.innerHTML = email;
+  
     
     }   
     else {
         location.href = "index.html"}
 })
+
+
+ 
+
+function closesession(){
+var email = localStorage.key(0);
+if (email != null){
+
+localStorage.clear();
+location.href = "index.html"
+
+}
+}
+
 

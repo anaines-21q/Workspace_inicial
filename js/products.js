@@ -1,4 +1,5 @@
 const ORDER_ASC_BY_COST = "Precio";
+const ORDER_DESC_BY_COST = "Mayorprecio";
 const ORDER_DESC_BY_SOLD_COUNT = "Relevancia";
 
 var currentProductsArray = [];
@@ -25,7 +26,12 @@ function sortProducts(criteria, array){
             if ( a.soldCount < b.soldCount ){ return 1; }
             return 0;
         });
-    }
+    }else if (criteria === ORDER_DESC_BY_COST){
+        result = array.sort(function(a, b) {
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost){ return 1; }
+            return 0;
+        });}
 
     return result;
 }
@@ -90,6 +96,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById("sortDesc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_DESC_BY_SOLD_COUNT);
+    });
+
+    document.getElementById("sortDescp").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_DESC_BY_COST);
     });
 
 

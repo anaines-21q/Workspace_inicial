@@ -14,6 +14,7 @@ function store() {
      else {
     localStorage.setItem(newemail.value, newpassword.value);
  alert("Quedaste registrado!");
+ location.href= "index.html";
      }
          
                }
@@ -37,3 +38,14 @@ if (pwd != null && (pwd == password))
         alert('nooooo tenes usuario!');
     }
 }
+
+
+
+
+
+
+
+
+
+ 
+
