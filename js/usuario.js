@@ -6,5 +6,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
    miusuario.innerHTML = email;
     
     }   
+    else {
+        location.href = "index.html"}
+})
 })
 
