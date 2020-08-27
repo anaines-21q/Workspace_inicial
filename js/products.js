@@ -2,10 +2,13 @@ const ORDER_ASC_BY_COST = "Precio";
 const ORDER_DESC_BY_COST = "Mayorprecio";
 const ORDER_DESC_BY_SOLD_COUNT = "Relevancia";
 
+
+
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var buscar = undefined;
 
 function sortProducts(criteria, array){
     let result = [];
@@ -32,18 +35,24 @@ function sortProducts(criteria, array){
             if ( a.cost < b.cost){ return 1; }
             return 0;
         });}
-
+        
     return result;
 }
+
 
 function showProductsList(){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
         let product = currentProductsArray[i];
+        let productName = product.name.toLowerCase();
+        let productDescription = product.description.toLowerCase();  
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)) &&
+            ( (productDescription.indexOf(buscar)) !== -1 || (productName.indexOf(buscar)) !== -1) 
+            ){
+            
 
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
@@ -102,17 +111,17 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowProducts(ORDER_DESC_BY_COST);
     });
 
-
-
-
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
+        document.getElementById("buscador").value = "";
 
         minCount = undefined;
         maxCount = undefined;
+        buscar = undefined;
 
         showProductsList();
+        search();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -138,5 +147,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+    function search(){
+        buscar = document.getElementById("buscador");
+        buscar = buscador.value.toLowerCase();
+        showProductsList();
+        };
 
-
+    
+        document.getElementById("buscador").addEventListener("keyup", search)
+         search();

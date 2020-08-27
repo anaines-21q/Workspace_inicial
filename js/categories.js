@@ -1,10 +1,12 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
+
 var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var buscar = undefined;
 
 function sortCategories(criteria, array){
     let result = [];
@@ -40,9 +42,13 @@ function showCategoriesList(){
     let htmlContentToAppend = "";
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
+        let categoryName = category.name.toLowerCase();
+        let categoryDescription = category.description.toLowerCase(); 
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount)) &&
+            ((categoryDescription.indexOf(buscar)) !== -1 || (categoryName.indexOf(buscar)) !== -1)             
+            ){
 
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
@@ -107,8 +113,11 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         minCount = undefined;
         maxCount = undefined;
+        buscar = undefined; 
 
         showCategoriesList();
+        search();
+        
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -134,3 +143,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+function search(){
+    buscar = document.getElementById("buscador");
+    buscar = buscador.value.toLowerCase();
+    showCategoriesList();
+    };
+    
+    document.getElementById("buscador").addEventListener("keyup", search)
+     search();
+

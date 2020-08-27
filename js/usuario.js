@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 })
 
 
- 
-
 function closesession(){
 var email = localStorage.key(0);
 if (email != null){

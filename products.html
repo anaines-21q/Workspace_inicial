@@ -16,6 +16,7 @@
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
+        
         <a class="py-2 d-none d-md-inline-block" href="homepage.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -38,26 +39,34 @@
           </div>
           <div class="container">
               <div class="row">
+                <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                  <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                    <i class="fas fa-search" aria-hidden="true" type="icon" ></i>
+                    <input id="buscador" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" value=""
+                      aria-label="Search">
+                  </form>
+                  </div>
                   <div class="col text-right">
                       <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                           <label class="btn btn-light active" id="sortAsc" >
-                              <input type="radio" name="options" autocomplete="off" checked>Precio más bajo
+                              <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-amount-down-alt mr-1"></i>$
                           </label>
                           <label class="btn btn-light" id="sortDescp" >
-                            <input type="radio" name="options" autocomplete="off">Precio mas alto
+                            <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up mr-1"></i>$
                         </label>
                          <label class="btn btn-light" id="sortDesc" >
-                              <input type="radio" name="options" autocomplete="off">Más vendido
+                              <input type="radio" name="options" autocomplete="off"><i class="fas fa-check-double mr-1"></i>Más vendido
+                            
                           </div>
                           </label>
-                   </div>
-                  </div>
-              </div>
-              <div class="row justify-content-end">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
                 <div class="col-md-6"></div>
                  <div class="col-md-6 col-sm-12 mb-1 container">
-                    <div class="row container p-0 m-0">
-                      <div class="col">
+                   <div class="row container p-0 m-0">
+                     <div class="col">
                         <p class="font-weight-normal text-right my-2">Precio</p>
                       </div>
                       <div class="col">
