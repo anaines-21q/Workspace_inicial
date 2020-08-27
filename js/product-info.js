@@ -30,13 +30,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             let productNameHTML  = document.getElementById("productName");
             let productDescriptionHTML = document.getElementById("productDescription");
-            let productCostHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
+            let productSoldCountHTML = document.getElementById("productSoldCount");
+            let productCategoryHTML = document.getElementById("productCategory");
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
-            productsoldCountHTML.innerHTML = product.soldCount;
-            productCriteriaHTML.innerHTML = category.productCriteria;
+            productSoldCountHTML.innerHTML = product.soldCount;
+            productCategoryHTML.innerHTML = product.category;
+            
 
             //Muestro las imagenes en forma de galería
            showImagesGallery(product.images);
