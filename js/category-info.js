@@ -8,13 +8,16 @@ function showImagesGallery(array){
         let imageSrc = array[i];
 
         htmlContentToAppend += `
+        <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
+            <h4 class="mb-1">`+ name +`</h4>
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
+        </a>
         `
-
+        
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }

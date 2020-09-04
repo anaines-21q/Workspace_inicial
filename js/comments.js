@@ -2,23 +2,30 @@ var Comments = {};
 
 function showCommentsList(Array){
    let htmlContentToAppend = "";
-  
+   let score="";
+
+for (let i=0; i < score;i++){
+    let comments = Array[i];
+var score=comments.score;
+score += `<i class="far fa-star checked"</i>`}
+
     for(let i = 0; i < Array.length; i++){
         let comments = Array[i];
-       
+        
+        
         htmlContentToAppend += `
           <br/>
-<li class="media">
-<div class="media-body">
-<label class="mt-0">`+ comments.user + `
-<span class="mute">`+ comments.dateTime +`</span>
-<span>`+ comments.score +`</span>
-</label>
-<br/>
-<label class="small">`+ comments.description +`</label>
-<hr/>
-</div>
-</li>
+            <li class="media">
+            <div class="media-body">
+            <label class="mt-0">`+ comments.user + `
+            <span class="mute">`+ comments.dateTime +`</span>
+            <span >`+ score +`</span>
+            </label>
+            <br/>
+            <label class="small">`+ score +`</label>
+            <hr/>
+            </div>
+            </li>
 
     `
     

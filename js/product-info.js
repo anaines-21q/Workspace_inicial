@@ -63,13 +63,18 @@ function showImagesRelated(array){
     
     for(let i = 0; i < array.length; i++){
         let related= array[i];
-
+        
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
+        <div class="col-lg-2 col-md-3 col-">
+        <a href="product-info.html" class="action">
+        
             <div class="d-block mb-4 h-100">
+            <h6 class="mb-1">`+ related.name +`</h6>
+            
                 <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
             </div>
         </div>
+        </a>
         `
 
         document.getElementById("productImagesrelated").innerHTML = htmlContentToAppend;

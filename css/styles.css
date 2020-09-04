@@ -169,3 +169,7 @@ width: 100%;
 #loginform button{
   margin-top: 20px;
 }
+
+.checked{
+  color:orange
+}
