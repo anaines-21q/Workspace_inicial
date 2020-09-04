@@ -1,4 +1,6 @@
 var product = {};
+var related = {};
+var relProduct = [];
 
 function showImagesGallery(array){
 
@@ -43,7 +45,40 @@ document.addEventListener("DOMContentLoaded", function(e){
            showImagesGallery(product.images);
         }
     });
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            related = resultObj.data;
+            
+            
+            showImagesRelated(related);
+        }
+
 });
+});
+
+function showImagesRelated(array){
+
+    let htmlContentToAppend = "";
+    
+    for(let i = 0; i < array.length; i++){
+        let related= array[i];
+
+        htmlContentToAppend += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
+            </div>
+        </div>
+        `
+
+        document.getElementById("productImagesrelated").innerHTML = htmlContentToAppend;
+    }
+}
+
+
+
+
 
 
 
