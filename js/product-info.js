@@ -5,7 +5,7 @@ var relProduct = [];
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
-
+    
     for(let i = 0; i < array.length; i++){
         let images = array[i];
 
@@ -61,7 +61,7 @@ function showImagesRelated(array){
 
     let htmlContentToAppend = "";
     
-    for(let i = 0; i < array.length; i++){
+    for(let i = 1; i < array.length; i+=2){
         let related= array[i];
         
         htmlContentToAppend += `
@@ -80,14 +80,6 @@ function showImagesRelated(array){
         document.getElementById("productImagesrelated").innerHTML = htmlContentToAppend;
     }
 }
-
-
-
-
-
-
-
-
 
 
 

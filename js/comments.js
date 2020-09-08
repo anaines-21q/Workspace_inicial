@@ -11,9 +11,9 @@ function showCommentsList(Array){
           <br/>
             <li class="media">
             <div class="media-body">
-            <label class="mt-0">`+ comments.user + `
+            <i class="fas fa-user-circle"></i>  <label class="mt-0">`+ comments.user + `
             <span class="mute">`+ comments.dateTime +`</span>
-            <span >`+ comments.score +`</span>
+            <span >calificacion:` + comments.score +`</span>
             </label>
             <br/>
             <label class="small">`+ comments.description +`</label>
