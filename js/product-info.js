@@ -1,9 +1,11 @@
 var product = {};
+var related = {};
+var relProduct = [];
 
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
-
+    
     for(let i = 0; i < array.length; i++){
         let images = array[i];
 
@@ -43,16 +45,53 @@ document.addEventListener("DOMContentLoaded", function(e){
            showImagesGallery(product.images);
         }
     });
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            related = resultObj.data;
+            
+            
+            showImagesRelated(related);
+        }
+
+});
 });
 
+function showImagesRelated(array){
 
+    let htmlContentToAppend = "";
+    
+    for(let i = 1; i < array.length; i+=2){
+        let related= array[i];
+        
+        htmlContentToAppend += `
+        <div class="col-lg-2 col-md-3 col-">
+        <a href="product-info.html" class="action">
+        
+            <div class="d-block mb-4 h-100">
+            <h6 class="mb-1">`+ related.name +`</h6>
+            
+                <img class="img-fluid img-thumbnail" src="` + related.imgSrc + `" alt="">
+            </div>
+        </div>
+        </a>
+        `
 
+        document.getElementById("productImagesrelated").innerHTML = htmlContentToAppend;
+    }
+}
 
+$('.score').on('click',function(){
 
-
-
-
-
+    if( $(this).hasClass('hover') )
+    {
+        $(this).removeClass('hover');
+    }
+    else{
+    $(this).addClass('hover');
+    }
+    
+    });
 
 
 

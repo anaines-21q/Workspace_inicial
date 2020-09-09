@@ -169,3 +169,54 @@ width: 100%;
 #loginform button{
   margin-top: 20px;
 }
+
+.black{
+  color:whitesmoke;
+}
+
+.score{
+  color:whitesmoke;
+}
+
+.score:hover{
+  color:orange;
+  animation: 1.5s;
+  
+}
+
+.hover{
+  color:orange;
+}
+
+#stars{
+  display: inline-block;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
