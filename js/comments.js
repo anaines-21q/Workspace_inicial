@@ -5,7 +5,16 @@ function showCommentsList(Array){
    
     for(let i = 0; i < Array.length; i++){
         let comments = Array[i];
-        
+        let score="";
+
+        for (let i = 0; i<comments.score ; i++){
+            score+=`<span class="fa fa-star checked"</span>`
+        }
+        for (let h = comments.score; h<5 ; h++){
+            score+=`<span class="fa fa-star black"</span>`
+        }
+       
+       
         
         htmlContentToAppend += `
           <br/>
@@ -13,7 +22,7 @@ function showCommentsList(Array){
             <div class="media-body">
             <i class="fas fa-user-circle"></i>  <label class="mt-0">`+ comments.user + `
             <span class="mute">`+ comments.dateTime +`</span>
-            <span >calificacion:` + comments.score +`</span>
+            <span >calificacion:` + score +`</span>
             </label>
             <br/>
             <label class="small">`+ comments.description +`</label>

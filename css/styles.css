@@ -170,42 +170,53 @@ width: 100%;
   margin-top: 20px;
 }
 
-.checked{
-  color:orange
+.black{
+  color:whitesmoke;
 }
 
-:root {
-  --color-inactivo: #5f5050;
-  --color-hover:orange;
+.score{
+  color:whitesmoke;
 }
-.valoracion {
-  display: inline-flex;
-  flex-direction: row-reverse;
-}
-.valoracion span {
-  background-color: initial;
-  border: 0;
-  color: var(--color-inactivo);
-  transition: 1s all;
-}
-.valoracion span:hover {
-  cursor: pointer;
-  color: var(--color-hover);
-}
-span:nth-child(1):hover ~ span {
-  color: var(--color-hover);
-}
-span:nth-child(2):hover ~ span {
-  color: var(--color-hover);
-}
-span:nth-child(3):hover ~ span {
-  color: var(--color-hover);
 
+.score:hover{
+  color:orange;
+  animation: 1.5s;
+  
 }
-span:nth-child(4):hover ~ span {
-  color: var(--color-hover);
-}
-span:nth-child(5):hover ~ span {
-  color: var(--color-hover);
 
+.hover{
+  color:orange;
 }
+
+#stars{
+  display: inline-block;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
