@@ -55,13 +55,28 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 function newcomment(){
+    let newcomment=''
     var comentario = document.getElementById("comentario").value;
     var email = localStorage.key(0);
     let htmlContentToAppend3 = "";
     let score3 = "";
-    
     var scored = document.getElementsByName("scored");
     var selectedScore;
+
+
+    let actual = new Date()
+    let mes= actual.getMonth() + 1;
+    let dia= actual.getDate();
+
+    if (mes < 10) {
+    mes = "0" + mes}
+    if(dia < 10){
+        dia = "0" + dia
+    }
+
+    let fecha = actual.getFullYear() + "-" + mes + "-" 
+    + dia + " " + actual.getHours() + ":" + actual.getMinutes() + ":" +
+    actual.getSeconds();    
 
     for(var i = 0; i < scored.length; i++) {
     if(scored[i].checked)
@@ -81,7 +96,7 @@ function newcomment(){
             <li class="media">
             <div class="media-body">
             <i class="fas fa-user-circle"></i>  <label class="mt-0">`+ email + `
-            <span class="mute">`+ 'yyyy-mm-dd hh:mm:ss'  +`</span>
+            <span class="mute">`+ fecha  +`</span>
             <span >calificacion:` + score3 +`</span>
             </label>
             <br/>
@@ -93,6 +108,8 @@ function newcomment(){
     `
     
        document.getElementById("newcomment").innerHTML = htmlContentToAppend3;
+       var selectedScore=0;
+
   
   
   };
