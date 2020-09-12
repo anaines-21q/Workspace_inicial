@@ -174,26 +174,22 @@ width: 100%;
   color:whitesmoke;
 }
 
-.score{
-  color:whitesmoke;
+
+
+.stars {
+  direction: rtl;
+  unicode-bidi: bidi-override;
 }
 
-.score:hover{
-  color:orange;
-  animation: 1.5s;
-  
+.stars
+label:hover,
+label:hover ~ label {
+  color: orange;
 }
 
-.hover{
-  color:orange;
+.stars input[type="radio"]:checked ~ label {
+  color: orange;
 }
-
-#stars{
-  display: inline-block;
-  
-}
-
-
 
 
 

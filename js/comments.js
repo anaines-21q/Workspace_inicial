@@ -53,3 +53,49 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 
+
+function newcomment(){
+    var comentario = document.getElementById("comentario").value;
+    var email = localStorage.key(0);
+    let htmlContentToAppend3 = "";
+    let score3 = "";
+    
+    var scored = document.getElementsByName("scored");
+    var selectedScore;
+
+    for(var i = 0; i < scored.length; i++) {
+    if(scored[i].checked)
+       selectedScore = scored[i].value;};
+
+        for (let i = 0; i< selectedScore ; i++){
+            score3+=`<span class="fa fa-star checked"</span>`
+        }
+        for (let h = selectedScore; h<5 ; h++){
+            score3+=`<span class="fa fa-star black"</span>`
+        }
+ 
+   
+
+        htmlContentToAppend3 += `
+          
+            <li class="media">
+            <div class="media-body">
+            <i class="fas fa-user-circle"></i>  <label class="mt-0">`+ email + `
+            <span class="mute">`+ 'yyyy-mm-dd hh:mm:ss'  +`</span>
+            <span >calificacion:` + score3 +`</span>
+            </label>
+            <br/>
+            <label class="small">`+ comentario +`</label>
+            <hr/>
+            </div>
+            </li>
+
+    `
+    
+       document.getElementById("newcomment").innerHTML = htmlContentToAppend3;
+  
+  
+  };
+
+
+  

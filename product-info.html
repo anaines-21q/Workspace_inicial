@@ -6,6 +6,24 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <style>input[type = "radio"]{ display:none;}
+    label {
+    color: grey;
+  }
+
+.stars{
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}</style>
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -78,17 +96,28 @@
      </dd>
      <dd>
        <div class="container">
+       <div id="newcomment">
+       </div>
        <form>
-        <label for="exampleFormControlTextarea1">Deja tu comentario aquí:</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" ></textarea>
+        <label>Deja tu comentario aquí:</label>
+      <textarea class="form-control" id="comentario" ></textarea>
       <br/>
-      <button type="button" class="btn btn-primary btn-sm">Califica!</button>
+      
       <div id="stars">
-        <span class=score id=score1><i class="fas fa-star"></i></span>  
-        <span class=score id=score2><i class="fas fa-star"></i></span>
-        <span class=score id=score3><i class="fas fa-star"></i></span>
-        <span class=score id=score4><i class="fas fa-star"></i></span>
-        <span class=score id=score5><i class="fas fa-star"></i></span>
+        
+        <input type="radio" id='radio1' name='scored' value="5">
+        <label for="radio1"><span class="fa fa-star"></span></label>
+        <input type="radio" id='radio2' name='scored' value="4">
+        <label for="radio2"><span class="fa fa-star"></span></label>
+        <input type="radio" id='radio3' name='scored' value="3">
+        <label for="radio3"><span class="fa fa-star"></span></label>
+        <input type="radio" id='radio4' name='scored' value='2'>
+        <label for="radio4"><span class="fa fa-star"></span></label>
+        <input type="radio" id='radio5' name='scored'  value='1'>
+        <label for="radio5"><span class="fa fa-star"></span></label>
+        <button type="button" class="btn btn-primary btn-sm" id="ingresarcomment" onClick="newcomment()">Califica!</button>
+        
+        
         </div>
     </div>
       </form>
@@ -121,6 +150,7 @@
   <script src="js/product-info.js"></script>
   <script src="js/usuario.js"></script>
   <script src="js/comments.js"></script>
+  
 </body>
 
 </html>
