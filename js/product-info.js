@@ -81,23 +81,6 @@ function showImagesRelated(array){
     }
 }
 
-$('.score').on('click',function(){
-
-    if( $(this).hasClass('hover') )
-    {
-        $(this).removeClass('hover');
-    }
-    else{
-    $(this).addClass('hover');
-    }
-    
-    });
-
-
-
-
-
-
 
 
 
