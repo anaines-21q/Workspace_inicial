@@ -1,3 +1,7 @@
+body{
+  background-color: #f8f9fa!important;
+}
+
 .jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
 }
@@ -55,12 +59,12 @@ footer p {
 }
 
 .site-header a {
-  color: white;
+  color: #fdf2f8;
   transition: ease-in-out color .15s;
 }
 
 .light-text {
-  color: white;
+  color: #fdf2f8;
 }
 
 .site-header .dropdown-menu a {
@@ -70,7 +74,7 @@ footer p {
 .dropzone{
   border: 2px dashed #0087F7;
   border-radius: 5px;
-  background: white;
+  background: #fdf2f8;
 }
 
 .alert{
@@ -96,10 +100,10 @@ footer p {
   width: 51px;
   height: 51px;
   margin: 6px;
-  border: 6px solid #fff;
+  border: 6px solid #fdf2f8;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  border-color: #fdf2f8 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -194,7 +198,7 @@ label:hover ~ label {
 }
 
 .nav-item{
-  color: white;
+  color:#fdf2f8;
 }
 
 .login-container{
@@ -224,7 +228,7 @@ label:hover ~ label {
 }
 .login-form-1 .btn{
   font-weight: 500;
-  color: #fff;
+  color:#fdf2f8;
 }
 
 .carousel { 
@@ -252,7 +256,9 @@ label:hover ~ label {
 a.navbar-brand {
   color: #EC4EA2!important ;
 }
-
-
-
-
+.dropdown-item{
+  color: #EC4EA2!important;
+}
+#miusuario{
+  color: #FDEEF6!important;
+}
