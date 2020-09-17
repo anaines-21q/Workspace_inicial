@@ -108,7 +108,7 @@ function newcomment(){
     `
     
        document.getElementById("newcomment").innerHTML = htmlContentToAppend3;
-       var selectedScore=0;
+       
 
   
   
