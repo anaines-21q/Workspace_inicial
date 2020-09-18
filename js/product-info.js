@@ -9,6 +9,7 @@ function showImagesGallery(array){
     
 
         htmlContentToAppend += `
+        <div class="col-lg-8 col-md-4 col-">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
     <div class="carousel-item active">
@@ -34,6 +35,8 @@ function showImagesGallery(array){
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
+
         `
 
 
@@ -85,7 +88,7 @@ function showImagesRelated(array){
         let related= array[i];
         
         htmlContentToAppend += `
-        <div class="col-lg-2 col-md-3 col-">
+        <div class="col-lg-2 ">
         <a href="product-info.html" class="action">
         
             <div class="d-block mb-4 h-100">
