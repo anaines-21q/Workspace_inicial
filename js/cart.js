@@ -2,7 +2,7 @@ let input0= 0
 let input1= 0
 let envioPercentage = 0.05;
 var currentProductsArray = [];
-let Cotizacion = 43; 
+let Cotizacion = 40; 
 
 function showArticlesList(currentArticlesArray){
     let htmlContentToAppend = "";
