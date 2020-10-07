@@ -13,7 +13,7 @@ let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
     let unitProductCostHTML = document.getElementById("productCostText");
-    let comissionCostHTML = document.getElementById("comissionText");
+    let comissionCostHTML = document.getElementById("porenvio");
     let totalCostHTML = document.getElementById("totalCostText");
 
     let unitCostToShow = MONEY_SYMBOL + productCost;

@@ -68,14 +68,115 @@
       </form>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div >
+        <h2>Tu carrito</h2>
+        <p class="lead">Estos son tus productos seleccionados</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+    <tbody  id="cart-list-container">
+    </tbody>  
+    </table>
+    <hr class="mb-4">
+    <h5 class="mb-3">Tipo de Envio</h5>
+    <div class="d-block my-3">
+      <div class="custom-control custom-radio">
+        <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+        <label class="custom-control-label" for="premiumradio">Premium -2 a 5 dias- 15%</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required="">
+        <label class="custom-control-label" for="expressradio">Express -5 a 8 dias- 7%</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="Estandarradio" name="publicationType" type="radio"3 class="custom-control-input" checked="" required="">
+        <label class="custom-control-label" for="Estandarradio">Estándar -12 a 15 dias- 5%)</label>
+      </div>
+      <div class="row">
+        <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones de Envio</button>
+      </div>
     </div>
-  </div>
+
+    <hr class="my-3">
+    <h4 class="">Costos</h4>
+    <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Subtotal</h6>
+            
+          </div>
+          <span class="text-muted" id="prodxcant">-</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Costo envio</h6>
+            
+          </div>
+          <span class="text-muted" id="porenvio">-</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <span>Total ($)</span>
+          <strong id="total">-</strong>
+        </li>
+      </ul>
+    <hr class="mb-4">
+    
+  </form>
+    <form>
+    <hr class="mb-4">
+    <h5 class="mb-3">Datos de Envio</h5>
+    <div class="form-group">
+      <label for="inputAddress">Domicilio</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Calle 1234">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Apartamento, block, piso</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Nro apartamento..bis..block..vivienda.">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Barrio</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Departamento</label>
+        <select id="inputState" class="form-control">
+          <option selected>Montevideo</option>
+          <option selected>Durazno</option>
+          <option selected>Tacuarembo</option>
+          <option>Florida</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Codigo Postal</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+         Acepto las condiciones de compra
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Comprar</button>
+  </form>
+
+ 
+</div>
+</div>
+</div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -84,6 +185,7 @@
       <div></div>
     </div>
   </div>
+      </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
