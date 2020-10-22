@@ -65,16 +65,17 @@
         </li>
       </ul>
       
-      </form>
+      
     </div>
   </nav>
   <main role="main">
     <div class="container mt-5">
       <div >
+        <form name="comprar" type="submit">
         <h2>Tu carrito</h2>
         <p class="lead">Estos son tus productos seleccionados</p>
 
-    <table class="table table-striped">
+    <table class="table table-striped"> 
       <thead>
         <tr>
           <th scope="col"></th>
@@ -91,15 +92,15 @@
     <h5 class="mb-3">Tipo de Envio</h5>
     <div class="d-block my-3">
       <div class="custom-control custom-radio">
-        <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+        <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="premiumradio">Premium -2 a 5 dias- 15%</label>
       </div>
       <div class="custom-control custom-radio">
-        <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required="">
+        <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required>
         <label class="custom-control-label" for="expressradio">Express -5 a 8 dias- 7%</label>
       </div>
       <div class="custom-control custom-radio">
-        <input id="Estandarradio" name="publicationType" type="radio"3 class="custom-control-input" checked="" required="">
+        <input id="Estandarradio" name="publicationType" type="radio" class="custom-control-input" checked="" required>
         <label class="custom-control-label" for="Estandarradio">Estándar -12 a 15 dias- 5%)</label>
       </div>
       <div class="row">
@@ -130,27 +131,70 @@
         </li>
       </ul>
     <hr class="mb-4">
-    
-  </form>
-    <form>
+    <div class="row">
+      <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#myModal">Forma de Pago</button>
+    </div>
+    <div class="row">
+      <span class="text-muted" id='spanforma'></span>
+    </div>
+      
+      <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Selecciona la forma de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body">
+              
+              <h5 class="mb-3">Formas de Pago</h5>
+             
+    <div class="d-block my-3">
+      <div class="custom-control custom-radio">
+        <input id="banco" type="radio" name='forma' value="Transferencia Bancaria"class="custom-control-input" onclick="formm()">
+        <label class="custom-control-label" for="banco">Transferencia Bancaria</label>
+        
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="credito" type="radio" name='forma' value="Tarjeta de Credito"class="custom-control-input"  onclick="formm()">
+        <label class="custom-control-label" for="credito">Tarjeta de Credito</label>
+        
+      </div>
+      <div id="form"></div>
+      
+    </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="pago()">Confirmar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
     <hr class="mb-4">
     <h5 class="mb-3">Datos de Envio</h5>
     <div class="form-group">
       <label for="inputAddress">Domicilio</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Calle 1234">
+      <input type="text" class="form-control" id="inputAddress" name="address" required placeholder="Calle 1234">
     </div>
     <div class="form-group">
       <label for="inputAddress2">Apartamento, block, piso</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Nro apartamento..bis..block..vivienda.">
+      <input type="text" class="form-control" id="inputAddress2"  name= "apto" required placeholder="Nro apartamento..bis..block..vivienda.">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">Barrio</label>
-        <input type="text" class="form-control" id="inputCity">
+        <input type="text" class="form-control" id="inputCity" name="barrio" required>
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Departamento</label>
-        <select id="inputState" class="form-control">
+        <select id="inputState" class="form-control" name="departamento" required>
           <option selected>Montevideo</option>
           <option selected>Durazno</option>
           <option selected>Tacuarembo</option>
@@ -159,18 +203,18 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputZip">Codigo Postal</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" class="form-control" id="inputZip" name="zip" required>
       </div>
     </div>
     <div class="form-group">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <input class="form-check-input" type="checkbox" id="gridCheck" required> 
         <label class="form-check-label" for="gridCheck">
          Acepto las condiciones de compra
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Comprar</button>
+    <button  onsubmit="hola()" class="btn btn-primary" >Comprar</button>
   </form>
 
  
