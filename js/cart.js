@@ -31,34 +31,38 @@ function showArticlesList(currentArticlesArray){
     }
     
     document.getElementById("cart-list-container").innerHTML = htmlContentToAppend;
-    
-    cantidad[i] = articulo.count;
-    currency[i] = articulo.currency;
-    if (currency[i] == "USD") {
+
+    subtotales()
+
+    function subtotales(){
+
+    cantidad[i] = articulo.count; //cantidad articulos JSON
+    currency[i] = articulo.currency; // moneda JSON
+    if (currency[i] == "USD") { //si esta en dolares
     precio[i] = articulo.unitCost;
-    subtotal += precio[i] * cantidad[i] * Cotizacion;
+    subtotal += precio[i] * cantidad[i] * Cotizacion; //paso subtotal: precio por cantidad a pesos uruguayos
     } else {
     precio[i] = articulo.unitCost;
-    subtotal += precio[i] * cantidad[i];
+    subtotal += precio[i] * cantidad[i];//paso subtotal final: precio por cantidad en moneda UYU 
     }
     
-    document.getElementById("prodxcant").innerHTML = "UYU " + subtotal;
+    document.getElementById("prodxcant").innerHTML = "UYU " + subtotal; //paso a mi HTML el subtotal
     
-    updateTotalCosts();
+    updateTotalCosts(); // actualizo costos totales
     
     }
-    let eliminar = document.getElementsByClassName("eliminar");
+    
     let prod = document.getElementsByClassName("prod");
     let subtotalitem = document.getElementsByClassName("subtotalitem");
     for (let i = 0; i < prod.length; i++) {
     prod[i].addEventListener("change", function () {
-    cantidad[i] = document.getElementsByClassName("input")[i].value;
-    subtotalitem[i].innerHTML = currency[i] + " " + (precio[i] * cantidad[i]);
+    cantidad[i] = document.getElementsByClassName("input")[i].value; //tomo el valor del input de cantidades
+    subtotalitem[i].innerHTML = currency[i] + " " + (precio[i] * cantidad[i]); //modifico subtotal de cada producto
     
     subtotal = 0;
     for (h = 0; h < prod.length; h++) {
-    if (currency[h] == "USD") {
-    subtotal += Math.round(precio[h] * cantidad[h] * Cotizacion);
+    if (currency[h] == "USD") { 
+    subtotal += Math.round(precio[h] * cantidad[h] * Cotizacion);//paso a UYU nuevo subtotal
     } else {
     subtotal += Math.round(precio[h] * cantidad[h]);
     }
@@ -66,35 +70,27 @@ function showArticlesList(currentArticlesArray){
 
 
     
-    document.getElementById("prodxcant").innerHTML = "UYU " + subtotal;
-    updateTotalCosts()
+    document.getElementById("prodxcant").innerHTML = "UYU " + subtotal; //subtotal final en html
     
+    updateTotalCosts() //actualizo costos finales
     
-
-
-        
-      
-            
-
-
     })
     
     let eliminar = document.getElementsByClassName("eliminar");
 
-    eliminar[i].addEventListener("click", function(){
-        
-        let prod = document.getElementsByClassName("prod");
+    eliminar[i].addEventListener("click", function(){//solo elimina auto y pino, en ese orden, sino elimina uno?
+        let prod = document.getElementsByClassName("prod"); 
         prod[i].remove()
         delete articulo.articles[i]
-        
+       
         updateTotalCosts()
-    })};
-
-
-}
     
+    });
+    }
+    }}
     
-    function updateTotalCosts() {
+    function updateTotalCosts() {//actualizar costos finales
+    
      valorenvio = Math.round(subtotal * envioPercentage);
     document.getElementById("porenvio").innerHTML = "UYU " + valorenvio;
     total = subtotal + valorenvio;
@@ -147,17 +143,17 @@ document.addEventListener("DOMContentLoaded", function(e){
     
     for(var i = 0; i < forma.length; i++) {
         if(forma[i].checked)
-           selectedforma = forma[i].value;};
+           selectedforma = forma[i].value;};//recorro radiobuttons para ver cual esta chequeado
            
 
            contentAppend += `
           
-           <h6>Tu Seleccion:`+ selectedforma  +`</h6>
+           <h6>Tu Seleccion:`+ selectedforma  +`</h6> 
    
       `
       document.getElementById("spanforma").innerHTML = contentAppend;
 
-    if (selectedforma == "Tarjeta de Credito"){
+    if (selectedforma == "Tarjeta de Credito"){//formulario para tcred
 
 
    form+=`
@@ -166,20 +162,20 @@ document.addEventListener("DOMContentLoaded", function(e){
     <h5 class="mb-3">Datos Tarjeta de Credito</h5>
     <div class="form-group">
       <label for="nrotarjeta">Numero de tarjeta</label>
-      <input type="number" class="form-control" id="Nrotarjeta" placeholder="XXXXXXXXXXXXXXXX" required>
+      <input type="number" class="form-control" id="Nrotarjeta" placeholder="XXXXXXXXXXXXXXXX" required name="nrotarjeta">
     </div>
     <div class="form-group">
       <label for="vto">Vto.</label>
-      <input class="form-control" id="vto" placeholder="XX/XXXX" >
+      <input class="form-control" id="vto" placeholder="XX/XXXX" name ="vencimiento" >
       <label for="cvv">CVV</label>
-      <input type="number" class="form-control" id="cvv" placeholder="XXX" required>
+      <input type="number" class="form-control" id="cvv" placeholder="XXX" required name="cvv">
     </div>
     
 `
 
 document.getElementById("form").innerHTML = form;}
 
-else if (selectedforma == "Transferencia Bancaria"){
+else if (selectedforma == "Transferencia Bancaria"){//formulario para transferencia
 
     form+=`
            
@@ -187,7 +183,7 @@ else if (selectedforma == "Transferencia Bancaria"){
      <h5 class="mb-3">Datos cuenta Bancaria</h5>
      <div class="form-group">
        <label for="inputAddress">Numero de cuenta</label>
-       <input type="number" class="form-control" id="Nrocuenta" placeholder="numero cuenta" required>
+       <input type="number" class="form-control" id="Nrocuenta" placeholder="numero cuenta" name="nrocuenta"required>
      </div>
      
      
@@ -199,26 +195,28 @@ else if (selectedforma == "Transferencia Bancaria"){
 
 
 function pago(){
+
     var forma = document.getElementsByName("forma");
     
     for(var i = 0; i < forma.length; i++) {
         if(forma[i].checked)
-           selectedforma = forma[i].value;};
+           selectedforma = forma[i].value;}; //recorro para ver cual esta chequeado
 
 if (selectedforma === "Tarjeta de Credito"){
+
  nrotarjeta= document.getElementById("Nrotarjeta").value
  vto = document.getElementById("vto").value 
  cvv = document.getElementById("cvv").value 
  
- if (nrotarjeta == null || nrotarjeta.length == 0)
+ if (nrotarjeta == null || nrotarjeta.length == 0 || nrotarjeta.length < 16 || nrotarjeta.length > 16)//tarjeta de credito solo 16 digitos, no puede estar vacio
  {alert ("el numero de tarjeta es incorrecto")}
 
- if(cvv == null || cvv.length == 0)
+ if(cvv == null ||cvv.length==0|| cvv.length < 3 || cvv.length > 3)//cvv solo 3 digitos, no puede estar vacio
 
  {alert ("Ingresa o verifica el numero de control de validacion correctamente")}
 
 
-if (vto == null || vto.length == 0 ){
+if (vto == null || vto.length == 0 ){//no puede estar vacio
     {alert ("ingresa vencimiento correctamente")}
 }
 
@@ -227,23 +225,17 @@ if (vto == null || vto.length == 0 ){
 
 if (selectedforma === "Transferencia Bancaria"){
     nroCuenta = document.getElementById("Nrocuenta").value
-    if (nroCuenta == null || nroCuenta.length ==0)
+    if (nroCuenta == null || nroCuenta.length ==0)//no puede estar vacio
     {alert("ingresa numero de cuenta correctamente")} 
 }
-else {
+else if (selectedforma == null || selectedforma == 0 ){
     alert ("No has ingresado forma de pago")
     
 }
 }
 
-function hola(){
-    var forma = document.getElementsByName("forma");
+function submit(){
+    forma =document.getElementsByName("forma")
+  if(forma.values!==null || forma.values.length!==0)
+   { alert("aun tienes campos que completar!");return false}}
     
-    for(var i = 0; i < forma.length; i++) {
-        if(forma[i].checked)
-           selectedforma = forma[i].value;};
-console.log(selectedforma)
-    if (selectedforma = undefined || selectedforma==null || selectedforma==0){
-       return false
-    }
-}

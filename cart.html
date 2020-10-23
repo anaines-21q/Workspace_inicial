@@ -152,12 +152,12 @@
              
     <div class="d-block my-3">
       <div class="custom-control custom-radio">
-        <input id="banco" type="radio" name='forma' value="Transferencia Bancaria"class="custom-control-input" onclick="formm()">
+        <input id="banco" type="radio" name='forma' value="Transferencia Bancaria"class="custom-control-input"  onclick="formm()">
         <label class="custom-control-label" for="banco">Transferencia Bancaria</label>
         
       </div>
       <div class="custom-control custom-radio">
-        <input id="credito" type="radio" name='forma' value="Tarjeta de Credito"class="custom-control-input"  onclick="formm()">
+        <input id="credito" type="radio" name='forma' value="Tarjeta de Credito" class="custom-control-input"  onclick="formm()">
         <label class="custom-control-label" for="credito">Tarjeta de Credito</label>
         
       </div>
@@ -208,13 +208,13 @@
     </div>
     <div class="form-group">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck" required> 
+        <input class="form-check-input" type="checkbox" id="gridCheck" name="condiciones" required> 
         <label class="form-check-label" for="gridCheck">
          Acepto las condiciones de compra
         </label>
       </div>
     </div>
-    <button  onsubmit="hola()" class="btn btn-primary" >Comprar</button>
+    <button  type="submit" onsubmit="submit()" class="btn btn-primary" >Comprar</button>
   </form>
 
  
