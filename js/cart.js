@@ -110,14 +110,14 @@ function eliminar(i) {
     let prod = document.getElementById("prod" + i);
     prod.remove();
     delete articulo.articles[i];
-    
+
     for (h = 0; h < prod.length; h++) {
         if (currency[h] == "USD") {
             subtotal += Math.round(precio[h] * cantidad[h] * Cotizacion);//paso a UYU nuevo subtotal
         } else {
             subtotal += Math.round(precio[h] * cantidad[h]);
         }
-   
+
     }
 
     document.getElementById("prodxcant").innerHTML = "UYU " + subtotal; //subtotal final en html
@@ -165,6 +165,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         }
     });
+    getJSONData(CART_BUY_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            msg = resultObj.data
+
+
+
+
+        }
+    });
 });
 
 
@@ -195,11 +204,11 @@ function formm() {
     <h5 class="mb-3">Datos Tarjeta de Credito</h5>
     <div class="form-group">
       <label for="nrotarjeta">Numero de tarjeta</label>
-      <input type="number" class="form-control" id="Nrotarjeta" placeholder="XXXXXXXXXXXXXXXX" required name="nrotarjeta">
+      <input id="Nrotarjeta" name="nrotarjeta" required class="form-control" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
     </div>
     <div class="form-group">
       <label for="vto">Vto.</label>
-      <input class="form-control" id="vto" placeholder="XX/XXXX" name ="vencimiento" >
+      <input class="form-control" id="vto" placeholder="YYYY/MM" name ="vencimiento" type="month">
       <label for="cvv">CVV</label>
       <input type="number" class="form-control" id="cvv" placeholder="XXX" required name="cvv">
     </div>
@@ -217,7 +226,7 @@ function formm() {
      <h5 class="mb-3">Datos cuenta Bancaria</h5>
      <div class="form-group">
        <label for="inputAddress">Numero de cuenta</label>
-       <input type="number" class="form-control" id="Nrocuenta" placeholder="numero cuenta" name="nrocuenta"required>
+       <input  type="tel" inputmode="numeric" class="form-control" id="Nrocuenta" placeholder="numero cuenta" name="nrocuenta"required>
      </div>
      
      
@@ -245,8 +254,8 @@ function pago() {
         vto = document.getElementById("vto").value
         cvv = document.getElementById("cvv").value
 
-        if (nrotarjeta == null || nrotarjeta.length == 0 || nrotarjeta.length < 16 || nrotarjeta.length > 16)//tarjeta de credito solo 16 digitos, no puede estar vacio
-        { alert("el numero de tarjeta es incorrecto") }
+        if (nrotarjeta == null || nrotarjeta.length == 0)//tarjeta de credito solo 16 digitos, no puede estar vacio
+        { alert("Debe ingresar numero de tarjeta") }
 
         if (cvv == null || cvv.length == 0 || cvv.length < 3 || cvv.length > 3)//cvv solo 3 digitos, no puede estar vacio
 
@@ -254,7 +263,7 @@ function pago() {
 
 
         if (vto == null || vto.length == 0) {//no puede estar vacio
-            { alert("ingresa vencimiento correctamente") }
+            { alert("Debe ingresar fecha de vencimiento") }
         }
 
 
@@ -265,14 +274,41 @@ function pago() {
         if (nroCuenta == null || nroCuenta.length == 0)//no puede estar vacio
         { alert("ingresa numero de cuenta correctamente") }
     }
-    else if (selectedforma == null || selectedforma == 0) {
+    if (selectedforma == null || selectedforma == 0) {
         alert("No has ingresado forma de pago")
 
     }
+
+    if ((selectedforma === "Tarjeta de Credito") && (nrotarjeta != null || nrotarjeta.length != 0)
+        && (nrotarjeta.length <= 19 && nrotarjeta.length >= 16) &&
+        (cvv != null || cvv.length != 0 && (vto != null || vto.length != 0))) { alert("sus datos han sido ingresados correctamente") };
+
+    if ((selectedforma === "Transferencia Bancaria") && (nroCuenta != null && nroCuenta.length != 0 && nroCuenta!="")) { alert("sus datos han sido ingresados correctamente") };
+
+
 }
 
-function submit() {
-    forma = document.getElementsByName("forma")
-    if (forma.values !== null || forma.values.length !== 0) { alert("aun tienes campos que completar!"); return false }
-}
+document.getElementById("comprar").addEventListener("submit", myFunction);
 
+function myFunction() {
+    let alertHTML = "";
+
+
+    alertHTML += `
+          
+    <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">`+ msg.msg+ `</h4>
+    <p>Felicitaciones, has completado tu compra, puedes volver a la lista y realizar todas las compras que quieras</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </div>
+     
+ `
+ document.getElementById("alert").innerHTML = alertHTML;
+
+
+
+
+
+    
+}
