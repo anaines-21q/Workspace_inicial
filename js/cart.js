@@ -283,7 +283,7 @@ function pago() {
         && (nrotarjeta.length <= 19 && nrotarjeta.length >= 16) &&
         (cvv != null || cvv.length != 0 && (vto != null || vto.length != 0))) { alert("sus datos han sido ingresados correctamente") };
 
-    if ((selectedforma === "Transferencia Bancaria") && (nroCuenta != null && nroCuenta.length != 0 && nroCuenta!="")) { alert("sus datos han sido ingresados correctamente") };
+    if ((selectedforma === "Transferencia Bancaria") && (nroCuenta != null && nroCuenta.length != 0 && nroCuenta != "")) { alert("sus datos han sido ingresados correctamente") };
 
 
 }
@@ -297,18 +297,18 @@ function myFunction() {
     alertHTML += `
           
     <div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">`+ msg.msg+ `</h4>
+    <h4 class="alert-heading">`+ msg.msg + `</h4>
     <p>Felicitaciones, has completado tu compra, puedes volver a la lista y realizar todas las compras que quieras</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </div>
      
  `
- document.getElementById("alert").innerHTML = alertHTML;
+    document.getElementById("alert").innerHTML = alertHTML;
 
 
 
 
 
-    
+
 }

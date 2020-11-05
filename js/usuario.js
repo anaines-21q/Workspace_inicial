@@ -1,25 +1,22 @@
 document.addEventListener("DOMContentLoaded", function (e) {
-    miusuario = document.getElementById("miusuario");
-    var email = localStorage.key(0);
-    if (email != null){
 
-   miusuario.innerHTML = email;
-  
-    
-    }   
-    else {
-        location.href = "index.html"}
+    miusuario = document.getElementById("miusuario");
+
+    var usuario = localStorage.getItem("miusuario");
+
+    usuario = JSON.parse(usuario);
+
+
+    if (usuario.email != null) {
+
+        miusuario.innerHTML = usuario.email;
+
+
+    }
 })
 
 
-function closesession(){
-var email = localStorage.key(0);
-if (email != null){
-
-localStorage.clear();
-location.href = "index.html"
+function closesession() {
+    location.href= "register.html"
 
 }
-}
-
-

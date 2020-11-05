@@ -262,3 +262,13 @@ a.navbar-brand {
 #miusuario{
   color: #FDEEF6!important;
 }
+
+.abs-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.formu{
+  width: 90%;
+}
