@@ -40,7 +40,7 @@ function infousuario() {
     var PrimerApellido = document.getElementById("PrimerApellido").value;
     var SegundoApellido = document.getElementById("SegundoApellido").value;
     var telefono = document.getElementById("telefono").value;
-
+    let password = info.pwd
 
     let registro =
     {
@@ -49,9 +49,26 @@ function infousuario() {
         nombre2: SegundoNombre,
         apellido1: PrimerApellido,
         apellido2: SegundoApellido,
-        tel: telefono
+        tel: telefono,
+        pwd:password,
+        
     }
 
-    info.push(registro);
-    localStorage.setItem("miusuario", JSON.stringify(info))
+    
+    localStorage.setItem("miusuario", JSON.stringify(registro));
+
+    miusuario = document.getElementById("miusuario");
+
+    var usuario = localStorage.getItem("miusuario");
+
+    usuario = JSON.parse(usuario);
+
+
+    if (usuario.email != null) {
+
+        miusuario.innerHTML = usuario.email;
+        document.getElementById("miusuario2").value = usuario.email
+}
+alert("tus datos han sido actualizados")
+
 }

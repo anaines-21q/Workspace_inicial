@@ -16,7 +16,6 @@ function store() {
 
 
           localStorage.setItem("miusuario", JSON.stringify(
-               
                {
                     email: newemail,
                     pwd: newpassword,
@@ -45,7 +44,7 @@ function usuario() {
 
 
      // check if stored data from register-form is equal to data from login form
-     if ((usuario.email != null) && (usuario.email == email) && (pwd = password)) {
+     if ((usuario.email != null) && (usuario.email == email) && (usuario.pwd = password)) {
           window.location.href = "homepage.html";
      } else {
           alert('nooooo tenes usuario!');

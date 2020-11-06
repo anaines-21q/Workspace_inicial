@@ -17,6 +17,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 function closesession() {
-    location.href= "register.html"
-
+    window.location.href = "register.html";
 }
