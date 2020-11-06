@@ -18,15 +18,22 @@ function showArticlesList(currentArticlesArray) {
         let articulo = currentArticlesArray[i];
 
         htmlContentToAppend += `
-    <tr class="prod" id="prod`+ i + `">
-    <td class="col-3"><img class="img-thumbnail rounded float-left" style="max-width:30%" src="` + articulo.src + `" alt="` + articulo.name + `" ></td>
-    <td class="col-4">`+ articulo.name + `</td>
-    <td class="col-3">`+ articulo.currency + `` + " " + `` + articulo.unitCost + `</td>
-    <td class="col-3">
-    <input type="number" class="input" id= "quantity` + i + ` placeholder="" required="" value="1" min="0"></td>
-    <td class="col-3"><span class="subtotalitem">` + articulo.currency + " " + (articulo.unitCost * articulo.count) + `</span></td>
-    <td class="col-3"><button type="button" class="btn btn-danger eliminar " onclick="eliminar(`+ i + `)"  id= "eliminar` + i + `">Eliminar articulo</button></td>
-    </tr>
+        <div class="container-fluid">
+    <div class="prod" id="prod`+ i + `">
+    <div class="row">
+    <div class="col md-3"><img class="img-thumbnail rounded float-left" style="max-width:30%" src="` + articulo.src + `" alt="` + articulo.name + `" >
+    </div>
+    <div class="col md-3"><p>`+ articulo.name + `</p></div>
+    <div class="col md-2"><p>`+ articulo.currency + `` + " " + `` + articulo.unitCost + `</p></div>
+    <div class="col md-2">
+    <input type="number" class="input btn-block" id= "quantity` + i + ` placeholder="" required="" value="1" min="0"></div>
+    <div class="col md-1"><span class="subtotalitem"><p>` + articulo.currency + " " + (articulo.unitCost * articulo.count) + `</span></p></div>
+    <div class="col md-1"><button type="button" class="btn btn-danger eliminar btn-block " onclick="eliminar(`+ i + `)"  id= "eliminar` + i + `">Eliminar articulo</button></div>
+    </div>
+    </div>
+
+    </div>
+    <hr class=my-3>
     `
 
 

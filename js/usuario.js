@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function (e) {
 
-    miusuario = document.getElementById("miusuario");
+    
 
     var usuario = localStorage.getItem("miusuario");
 
     usuario = JSON.parse(usuario);
 
 
-    if (usuario.email != null) {
-
+    if (usuario.email && document.getElementById("miusuario") ) {
+        miusuario = document.getElementById("miusuario");
         miusuario.innerHTML = usuario.email;
 
 
@@ -17,5 +17,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 function closesession() {
-    window.location.href = "register.html";
+    window.location.href = "index.html";
 }

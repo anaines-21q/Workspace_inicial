@@ -24,7 +24,7 @@ function store() {
           ));
 
           alert("Quedaste registrado!");
-          location.href = "index.html";
+          window.location.href = "index.html";
      }
 
 }
@@ -44,7 +44,7 @@ function usuario() {
 
 
      // check if stored data from register-form is equal to data from login form
-     if ((usuario.email != null) && (usuario.email == email) && (usuario.pwd = password)) {
+     if ((usuario.email == email) && (usuario.pwd == password)) {
           window.location.href = "homepage.html";
      } else {
           alert('nooooo tenes usuario!');
